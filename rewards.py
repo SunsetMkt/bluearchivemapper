@@ -34,21 +34,21 @@ def get_currency_rewards(reward, data):
     currency = data.currencies[reward['StageRewardId']]
     name_en = 'NameEn' in data.localization[currency['LocalizeEtcId']] and data.localization[currency['LocalizeEtcId']]['NameEn'] or None
 
-    yield Reward(name_en, currency['Icon'], reward['RewardTag'], reward['StageRewardProb'] / 100, None)
+    yield Reward(name_en, currency['Icon'], reward['RewardTag'], reward['StageRewardProb'] / 100, reward['StageRewardAmount'])
 
 
 def get_equipment_rewards(reward, data):
     item = data.equipment[reward['StageRewardId']]
     name_en = 'NameEn' in data.localization[item['LocalizeEtcId']] and data.localization[item['LocalizeEtcId']]['NameEn'] or None
 
-    yield Reward(name_en, item['Icon'], reward['RewardTag'], reward['StageRewardProb'] / 100, None)
+    yield Reward(name_en, item['Icon'], reward['RewardTag'], reward['StageRewardProb'] / 100, reward['StageRewardAmount'])
 
 
 def get_item_rewards(reward, data):
     item = data.items[reward['StageRewardId']]
     name_en = 'NameEn' in data.localization[item['LocalizeEtcId']] and data.localization[item['LocalizeEtcId']]['NameEn'] or None
 
-    yield Reward(name_en, item['Icon'], reward['RewardTag'], reward['StageRewardProb'] / 100, None)
+    yield Reward(name_en, item['Icon'], reward['RewardTag'], reward['StageRewardProb'] / 100, reward['StageRewardAmount'])
 
 
 def get_gacha_rewards(stage_reward, data):
